@@ -1,0 +1,248 @@
+<html>
+<head>
+  <title>Programming skill assessment task</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav id="navbar">
+    <img id="billy" src="billy.svg" />
+    <h2>Programming skill assessment task</h2>
+  </nav>
+  <div id="header">
+    <div id="headline">
+      <div id="welcome-text">
+        <h1>Tic tac toe</h1>
+        <p>
+          Welcome to the programming skill assessment task, and congratulations on making it this far!
+          Let's build a simple game.
+        </p>
+      </div>
+      <img id="tictactoe-white" src="tictactoe-white.svg">
+    </div>
+  </div>
+  <div id="content">
+    <div id="content-objective">
+      <h1>Objective</h1>
+      <p>
+        We want to know your coding style and ability. To do this, we want you to make us a playable game
+        of tic-tac-toe - you can implement it on the <a href="#content-frontend">frontend</a> or on the
+        <a href="#content-backend">backend</a>, whatever you feel comfortable with. Continue scrolling to
+        see the requirements for whichever context you choose.
+      </p>
+      <h2>Rules</h2>
+      <p>
+        You can implement the project whichever way you see fit - however, it must be your own work. This means
+        you are of course allowed to use external libraries, but the solution must come from you. You must mention
+        every external source you have used (both libraries and any code snippets you have copied) and explain
+        your reasoning behind it.
+      </p>
+      <h2>Delivery</h2>
+      <p>
+        Please deliver the completed project as a GitHub repository we have access to, complete with
+        a nice README file. If you are not used to GitHub, don't worry, simply zip your project and send it
+        to us, along with a readme.txt file.
+      </p>
+    </div>
+    <div id="content-frontend">
+      <h2>Frontend</h2>
+      <p>
+        So you have chosen to implement tic-tac-toe as a frontend game. We would therefore like to see
+        how advanced your HTML, CSS and JavaScript skills are.
+      </p>
+      <div id="frameworks-frontend">
+        <img id="angular" src="angular.svg" />
+        <img id="react" src="react.svg" />
+        <img id="vue" src="vue.svg" />
+      </div>
+      <p>
+        The design must consist of a simple grid with Xs and Os. These can be rendered using whatever you
+        want - if you want to flex your designing muscle you can use custom SVGs, if you want to show your
+        use of libraries, use an icon library. We do not mind if it is the prettiest game on earth, but
+        make it as nice as you know how to. If you know how to do CSS effects, use them! If you know an
+        awesome library, be our guest.
+      </p>
+      <p>
+        We would prefer if this is implemented using a framework, if you are familiar with one. Our stack
+        consists of React and emberjs, so either of these would be perfect. Vue and Angular also work,
+        and if you are not familiar with a frontend framework, no worries - use jQuery or even vanilla
+        JavaScript. But definitely use a framework if you are familiar with one. It's not the end of the
+        world if you don't use one, so no worries.
+      </p>
+      <h2>Implementation</h2>
+      <p>
+        You can implement this game either as a 2-player game or as a player-vs-computer game. You should
+        be able to choose who starts. There should be a status bar, we'll go into that later. When someone
+        wins, the game should start again, and the person who didn't start the last time gets to start this
+        time. You should keep count of who has won how many times.
+      </p>
+      <h4>Grid</h4>
+      <p>
+        Nothing too crazy, a grid where the squares are clickable when it's your turn, and where you
+        can see the Xs and Os.
+      </p>
+      <h4>Message overlay</h4>
+      <p>
+        An overlay that is used to communicate when someone has won. It should be shown over the grid.
+      </p>
+      <h4>Status bar</h4>
+      <p>
+        A simple status bar showing whose turn it is (X or O) and how many times each has won. It should
+        also have a button to start/continue with a new game/restart.
+      </p>
+    </div>
+    <div id="content-backend">
+      <h2>Backend</h2>
+      <p>
+        So you have chosen to implement tic-tac-toe as a backend game. We would therefore like to see
+        how advanced your API service skills are.
+      </p>
+      <div id="frameworks-backend">
+        <img id="typescript" src="typescript.svg" />
+        <img id="php" src="php.svg"/>
+        <img id="python" src="python.svg" />
+        <img id="laravel" src="laravel.svg" />
+      </div>
+      <p>
+        The design must consist of an API with a few endpoints. You can write this in any language you
+        want, using any framework you want (or none at all). We use TypeScript, PHP and Python, so using
+        any of these is a plus - especially if you can do it in Laravel, express or Koa. If you are not
+        familiar with a backend framework, no worries - just develop it your way, as long as it works.
+        But definitely use a framework if you are familiar with one. It's not the end of the world if
+        you don't use one, so no worries.
+      </p>
+      <h2>Implementation</h2>
+      <p>
+        You can implement this game either as a 2-player game or as a player-vs-computer game. All communication
+        must be handled by endpoints, and all data must be returned as JSON.
+      </p>
+      <div class="endpoint">
+        <h4><code>GET /</code></h4>
+        <p>
+          Should return the game state. It should initialize a new game if no game has been started before.
+        </p>
+        <code>Response body</code>
+        <p class="small-bottom-margin left-margin">
+          Status code <code>200 OK</code> on success, with body:
+        </p>
+        <pre>
+    {
+      "board": [
+        [piece, piece, piece],
+        [piece, piece, piece],
+        [piece, piece, piece]
+      ],
+      "score": {
+        "x": number,
+        "o": number
+      },
+      "currentTurn": "x" | "o"
+      "victory": piece
+    }
+        </pre>
+        <p>
+          Where <code>piece</code> is either <code>"x"</code>, <code>"o"</code> or <code>""</code> (an empty
+          string) and <code>finished</code> is whether somebody won or the game is still going on.
+        </p>
+      </div>
+      <div class="endpoint">
+        <h4><code>POST /:piece</code></h4>
+        <p>
+          Should place the <code>piece</code> (either <code>x</code> or <code>o</code>) in the requested
+          grid coordinates:
+        </p>
+        <code>Request body</code>
+        <pre>
+    {
+      "x": number,
+      "y": number
+    }
+        </pre>
+        <p>
+          Where <code>x</code> and <code>x</code> can be <code>0</code>, <code>1</code> or <code>2</code>.
+        </p>
+        <code>Response body</code>
+        <p class="small-bottom-margin left-margin">
+          Status code <code>409 Conflict</code> if a piece is being placed where a piece already is.
+        </p>
+        <p class="small-bottom-margin left-margin">
+          Status code <code>406 Not acceptable</code> if a piece is being placed out of turn.
+        </p>
+        <p class="small-bottom-margin left-margin">
+          Status code <code>200 OK</code> if the request succeeded, with the following response body:
+        </p>
+        <pre>
+    {
+      "board": [
+        [piece, piece, piece],
+        [piece, piece, piece],
+        [piece, piece, piece]
+      ],
+      "score": {
+        "x": number,
+        "o": number
+      },
+      "currentTurn": "x" | "o"
+      "victory": piece
+    }
+        </pre>
+        <p>
+          Where <code>piece</code> is either <code>"x"</code>, <code>"o"</code> or <code>""</code> (an empty
+          string) and <code>finished</code> is whether somebody won or the game is still going on.
+        </p>
+      </div>
+      <div class="endpoint">
+        <h4><code>POST /restart</code></h4>
+        <p>
+          Should clear the board and update the <code>score</code> based on who won (the <code>victory</code>
+          variable). If nobody had a <code>victory</code> in the previous game, it basically clears the board
+          without touching the scores.
+        </p>
+        <code>Response body</code>
+        <p class="small-bottom-margin left-margin">
+          Status code <code>200 OK</code> if the request succeeded, with the following response body:
+        </p>
+        <pre>
+    {
+      "board": [
+        [piece, piece, piece],
+        [piece, piece, piece],
+        [piece, piece, piece]
+      ],
+      "score": {
+        "x": number,
+        "o": number
+      },
+      "currentTurn": "x" | "o",
+      "victory": piece
+    }
+        </pre>
+        <p>
+          Where <code>piece</code> is either <code>"x"</code>, <code>"o"</code> or <code>""</code> (an empty
+          string) and <code>finished</code> is whether somebody won or the game is still going on.
+        </p>
+      </div>
+      <div class="endpoint">
+        <h4><code>DELETE /</code></h4>
+        <p>
+          Should clear the board and <code>scores</code>.
+        </p>
+        <code>Response body</code>
+        <p class="small-bottom-margin left-margin">
+          Status code <code>200 OK</code> if the request succeeded, with the following response body:
+        </p>
+        <pre>
+    {
+      "currentTurn": "x" | "o"
+    }
+        </pre>
+        <p>
+          Where <code>currentTurn</code> is either <code>x</code> or <code>o</code>, indicating who should
+          start.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
