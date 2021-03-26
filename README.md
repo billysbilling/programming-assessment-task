@@ -2,10 +2,10 @@
 
 # programming-assessment-task
 
-<img alt="tic-tac-toe" src="src/tictactoe-white.svg" width="200px" />
+<img alt="tic-tac-toe" src="src/tictactoe-white.svg" width="80px" align="right" />
 
 This is a task designed to test the capabilities of new junior hires, through the implementation of
-a game of tic-tac-tow. It is designed in plain vanilla HTML and CSS, so all files simply need to be
+a game of tic-tac-toe. It is designed in plain vanilla HTML and CSS, so all files simply need to be
 uploaded to the same folder and served through [index.html](index.html).
 
 ## Deploying
